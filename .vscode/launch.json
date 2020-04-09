@@ -1,0 +1,29 @@
+{
+    "configurations": [
+      {
+        "name": "Lambda",
+        "type": "node",
+        "request": "launch",
+        "runtimeArgs": ["--inspect", "--debug-port=9229"],
+        "program": "${workspaceFolder}/node_modules/serverless/bin/serverless",
+        "args": ["offline"],
+        "port": 9229,
+        "console": "integratedTerminal"
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "serverless",
+        "program": "${workspaceFolder}/node_modules/.bin/sls",
+        "args": [
+            "offline",
+            "start",
+            "--env",
+            "development",
+            "--dontPrintOutput"
+        ],
+        "runtimeExecutable": "/usr/local/Cellar/node/13.8.0/bin/node"
+    },      
+    ]
+  }
+  

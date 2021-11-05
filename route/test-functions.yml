@@ -2,6 +2,8 @@ testService:
     role: arn:aws:iam::849218674745:role/serverless_edge
     handler: src/lambda.index
     events:
-    - http: ANY/
-    - http: 'ANY {proxy+}'
+        - http:
+            method: any
+            path: /{proxy+}
+            cors: true
     

@@ -1,8 +1,8 @@
 {
-  "name": "base",
+  "name": "base-service",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "base service",
+  "author": "jjy",
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
@@ -18,49 +18,74 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "local": "sls offline start  --env development --port 4000"
+    "local": "sls offline start  --env development --port 4000",
+    "prod": "sls deploy  --env production --stage prod"
   },
   "dependencies": {
-    "@nestjs/common": "^6.10.14",
+    "@nestjs/common": "^7.6.15",
     "@nestjs/config": "^0.4.0",
-    "@nestjs/core": "^6.10.14",
+    "@nestjs/core": "^7.6.15",
     "@nestjs/jwt": "^7.0.0",
+    "@nestjs/microservices": "^7.6.15",
     "@nestjs/passport": "^7.0.0",
-    "@nestjs/platform-express": "^6.10.14",
-    "aws-serverless-express": "^3.3.8",
+    "@nestjs/platform-express": "^7.6.15",
+    "@nestjs/websockets": "^7.6.15",
+    "@types/sharp": "^0.23.0",
+    "aws-lambda": "^1.0.5",
+    "aws-sdk": "^2.709.0",
+    "aws-serverless-express": "^3.3.6",
+    "cache-manager": "^3.4.3",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "file-type": "^16.3.0",
+    "moment": "^2.27.0",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "querystring": "^0.2.0",
+    "ramda": "^0.27.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.0",
-    "rxjs": "^6.5.4",
-    "serverless": "^1.67.3",
-    "serverless-offline": "^6.1.4"
+    "rxjs": "^6.6.7",
+    "serverless": "^1.83.3"
   },
   "devDependencies": {
     "@nestjs/cli": "^6.13.2",
     "@nestjs/schematics": "^6.8.1",
     "@nestjs/testing": "^6.10.14",
-    "@types/aws-lambda": "^8.10.17",
+    "@types/aws-lambda": "^8.10.42",
+    "@types/aws-serverless-express": "^3.3.3",
     "@types/express": "^4.17.2",
     "@types/jest": "^24.0.25",
     "@types/node": "^13.1.6",
+    "@types/passport-jwt": "^3.0.3",
+    "@types/passport-local": "^1.0.33",
+    "@types/ramda": "^0.27.3",
     "@types/supertest": "^2.0.8",
     "@typescript-eslint/eslint-plugin": "^2.12.0",
     "@typescript-eslint/parser": "^2.12.0",
-    "aws-sdk": "^2.621.0",
+    "copy-webpack-plugin": "^9.0.1",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-import": "^2.19.1",
+    "fork-ts-checker-webpack-plugin": "^6.3.5",
     "jest": "^24.9.0",
     "prettier": "^1.18.2",
-    "serverless-webpack": "^5.2.0",
-    "source-map-support": "^0.5.10",
+    "serverless-apigw-binary": "^0.4.4",
+    "serverless-offline": "^5.12.1",
+    "serverless-webpack": "^5.5.5",
+    "source-map-support": "^0.5.16",
     "supertest": "^4.0.2",
     "ts-jest": "^24.3.0",
-    "ts-loader": "^6.2.1",
+    "ts-loader": "^9.2.6",
     "ts-node": "^8.6.0",
     "tsconfig-paths": "^3.9.0",
+    "tsconfig-paths-webpack-plugin": "^3.5.1",
     "typescript": "^3.7.4",
-    "webpack": "^4.29.0",
-    "webpack-node-externals": "^1.7.2"
+    "webpack": "^5.59.0",
+    "webpack-node-externals": "^3.0.0"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -75,5 +100,19 @@
     },
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  }
+  },
+  "main": "webpack.config.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/freechild/artistscard-util-service.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://gitlab.com/freechild/artistscard-util-service/issues"
+  },
+  "homepage": "https://gitlab.com/freechild/artistscard-util-service#readme"
 }

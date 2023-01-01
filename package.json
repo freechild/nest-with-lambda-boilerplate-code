@@ -52,7 +52,7 @@
     "serverless": "^1.83.3"
   },
   "devDependencies": {
-    "@nestjs/cli": "^6.13.2",
+    "@nestjs/cli": "^9.1.8",
     "@nestjs/schematics": "^6.8.1",
     "@nestjs/testing": "^6.10.14",
     "@types/aws-lambda": "^8.10.42",
